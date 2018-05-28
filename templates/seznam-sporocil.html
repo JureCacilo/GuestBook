@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Seznam sporočil|GuestBook</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <nav>
+            <a href="/">Začetna stran</a>
+    </nav>
+    <h1>Seznam sporocil</h1>
+    {% for sporocilo in seznam %}
+    <p>
+        <strong><a href="mailto:{{sporocilo.email}}">{{ sporocilo.ime }} {{sporocilo.priimek}}</a></strong> ob {{ sporocilo.nastanek.strftime('%d %B %Y at %H:%M') }}:
+        <br>
+        <em>{{ sporocilo.sporocilo }}</em>
+    </p>
+    <br>
+{% else %}
+    <p>Nobenih sporočil še ni na voljo.</p>
+    {% endfor %}    
+
+
+
+
+</body>
+</html>
